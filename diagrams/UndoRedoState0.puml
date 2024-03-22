@@ -7,10 +7,11 @@ skinparam ClassBackgroundColor #FFFFAA
 title Initial state
 
 package States {
-    class State1 as "<u>ab0:AddressBook</u>"
-    class State2 as "<u>ab1:AddressBook</u>"
-    class State3 as "<u>ab2:AddressBook</u>"
+    class State1 as "<u>state0:State</u>"
+    class State2 as "<u>state1:State</u>"
+    class State3 as "<u>state2:State</u>"
 }
+
 State1 -[hidden]right-> State2
 State2 -[hidden]right-> State3
 hide State2
