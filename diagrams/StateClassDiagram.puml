@@ -1,0 +1,23 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor DimGray
+skinparam classBackgroundColor DimGray
+
+Package State as StatePackage <<Rectangle>>{
+Class State
+Class Command
+Class ReadOnlyAddressBook
+Class ObservableList
+Class Predicate
+}
+
+Class HiddenOutside #FFFFFF
+HiddenOutside ..> State
+
+State *--> Command
+State *--> ReadOnlyAddressBook
+State *--> ObservableList
+State *--> Predicate
+@enduml
+

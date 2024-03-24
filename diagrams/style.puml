@@ -31,6 +31,9 @@
 !define STORAGE_COLOR_T3 #806600
 !define STORAGE_COLOR_T2 #544400
 
+!define STATE_COLOR #DimGray
+!define STATE_COLOR_T1 #DarkGray
+
 !define USER_COLOR #000000
 
 skinparam Package {
