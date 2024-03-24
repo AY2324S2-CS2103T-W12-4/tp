@@ -18,6 +18,8 @@ Class Address
 Class Email
 Class Name
 Class Phone
+Class Description
+Class "Next of Kin"
 Class Tag
 
 Class I #FFFFFF
@@ -41,6 +43,8 @@ Person *--> Name
 Person *--> Phone
 Person *--> Email
 Person *--> Address
+Person *--> Description
+Person *--> "Next of Kin"
 Person *--> "*" Tag
 
 Person -[hidden]up--> I
