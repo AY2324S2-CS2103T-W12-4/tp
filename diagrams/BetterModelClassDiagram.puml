@@ -18,6 +18,4 @@ Person *--> Name
 Person *--> Phone
 Person *--> Email
 Person *--> Address
-Person *--> Next of Kin
-Person *--> Description
 @enduml
