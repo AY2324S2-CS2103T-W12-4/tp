@@ -121,6 +121,7 @@
         "features": "Features",
         "notes-about-the-command-format": "Notes about the command format:",
         "adding-a-new-client-add": "Adding a new client: add",
+        "listing-all-persons-list": "Listing all persons : list",
         "updating-a-client-update": "Updating a client : update",
         "locating-persons-by-name-find": "Locating persons by name: find",
         "undoing-a-command-undo": "Undoing a command : undo",
