@@ -126,6 +126,8 @@
         "locating-clients-by-name-find": "Locating clients by name: find",
         "undoing-a-command-undo": "Undoing a command : undo",
         "redoing-a-command-redo": "Redoing a command : redo",
+        "displaying-a-client-s-information-display": "Displaying a client's information : display",
+        "deleting-a-client-delete": "Deleting a client: delete",
         "clearing-all-entries-clear": "Clearing all entries : clear",
         "exiting-the-program-exit": "Exiting the program : exit",
         "shortcuts": "Shortcuts",
