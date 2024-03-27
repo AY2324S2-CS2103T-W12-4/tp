@@ -161,10 +161,21 @@ mark {
   }
 }
 
-h2,
+h1, h2 {
+ padding: 10px;
+ color: #333333; /* Sets the text color inside the container */
+ background-clip: text;
+ background: linear-gradient(90deg in oklab, #7EC0EE, #9FE2BF);
+ border-radius: 10px; /* Sets the corner radius to 20px */
+}
+
 h3,
 h4,
 h5,
 h6 {
-  color: #e46c0a;
+   padding: 10px;
+   color: #5A5A5A; /* Sets the text color inside the container */
+   background-clip: text;
+   background: linear-gradient(90deg in oklab, #ADD8E6, #9FE2BF);
+   border-radius: 10px; /* Sets the corner radius to 20px */
 }
