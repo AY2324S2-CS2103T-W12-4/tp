@@ -140,7 +140,8 @@
       "src": "index.md",
       "title": "",
       "headings": {
-        "addressbook-level-3": "AddressBook Level-3"
+        "welcome-to-connectcare": "Welcome to ConnectCare",
+        "key-features": "Key Features:"
       },
       "headingKeywords": {}
     },
