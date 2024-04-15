@@ -65,6 +65,8 @@
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
         "deleting-a-person": "Deleting a person",
+        "undoing-a-command": "Undoing a command",
+        "redoing-a-command": "Redoing a command",
         "saving-data": "Saving data",
         "planned-enhancements": "Planned Enhancements"
       },
