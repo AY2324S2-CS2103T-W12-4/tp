@@ -30,7 +30,7 @@ deactivate CommandParser
 LogicManager -> UndoCommand : execute()
 activate UndoCommand
 
-UndoCommand -> Model : rollBackHistory()
+UndoCommand -> Model : rollBackState()
 activate Model
 Model --> UndoCommand
 deactivate Model

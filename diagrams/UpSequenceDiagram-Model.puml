@@ -1,0 +1,29 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+end box
+
+box History #grey
+participant ":BufferedHistory" as BufferedHistory #black
+end box
+
+[-> Model : retrievePreviousCommand()
+activate Model
+
+Model -> BufferedHistory : rollBackState()
+activate BufferedHistory
+BufferedHistory --> Model
+deactivate BufferedHistory
+
+Model -> BufferedHistory : getCurrStateHasBuffer()
+activate BufferedHistory
+BufferedHistory --> Model : state
+deactivate BufferedHistory
+
+[<-- Model
+deactivate Model
+
+@enduml

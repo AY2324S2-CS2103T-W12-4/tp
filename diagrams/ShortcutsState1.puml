@@ -1,0 +1,23 @@
+@startuml
+!include style.puml
+skinparam ClassFontColor #000000
+skinparam ClassBorderColor #000000
+skinparam ClassBackgroundColor #FFFFAA
+
+title After command "delete 5"
+
+package states {
+    class State1 as "<u>state1:CommandState</u>"
+    class State2 as "<u>bufferState:CommandState</u>"
+    class State3 as "<u>state2:CommandState</u>"
+}
+
+State1 -[hidden]right-> State2
+State2 -[hidden]right-> State3
+
+hide State3
+
+class Pointer as "Current State = 1 " #FFFFFF
+
+Pointer -up-> State2
+@end

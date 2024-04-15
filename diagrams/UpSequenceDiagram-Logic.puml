@@ -1,0 +1,24 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : retrievePreviousCommand()
+activate LogicManager
+
+LogicManager -> Model : retrievePreviousCommand()
+activate Model
+
+Model --> LogicManager : result
+deactivate Model
+
+[<--LogicManager
+deactivate LogicManager
+@enduml

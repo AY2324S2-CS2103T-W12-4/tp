@@ -7,9 +7,9 @@ skinparam ClassBackgroundColor #FFFFAA
 title After command "add n/David..."
 
 package states {
-    class State1 as "<u>startState:ModelState</u>"
-    class State2 as "<u>state1:ModelState</u>"
-    class State3 as "<u>state2:ModelState</u>"
+    class State1 as "<u>state1:CommandState</u>"
+    class State2 as "<u>state2:CommandState</u>"
+    class State3 as "<u>bufferState:CommandState</u>"
 }
 
 State1 -[hidden]right-> State2
