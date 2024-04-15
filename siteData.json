@@ -133,7 +133,7 @@
         "clearing-all-entries-clear": "Clearing all entries : clear",
         "appointment-management": "Appointment Management",
         "adding-an-appointment-schedule-add": "Adding an appointment: schedule add",
-        "deleting-appointments-schedule-delete": "Deleting Appointments : schedule delete",
+        "deleting-appointment-schedule-delete": "Deleting Appointment : schedule delete",
         "program-controls": "Program Controls",
         "undoing-a-command-undo": "Undoing a command : undo",
         "redoing-a-command-redo": "Redoing a command : redo",
