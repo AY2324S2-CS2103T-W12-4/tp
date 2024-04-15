@@ -1,0 +1,70 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant ":DisplayCommandParser" as DisplayCommandParser LOGIC_COLOR
+participant "d:DisplayCommand" as DisplayCommand LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "m:Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("display John Doe")
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand("display John Doe")
+activate AddressBookParser
+
+create DisplayCommandParser
+AddressBookParser -> DisplayCommandParser
+activate DisplayCommandParser
+
+DisplayCommandParser --> AddressBookParser
+deactivate DisplayCommandParser
+
+AddressBookParser -> DisplayCommandParser : parse("John Doe")
+activate DisplayCommandParser
+
+create DisplayCommand
+DisplayCommandParser -> DisplayCommand
+activate DisplayCommand
+
+DisplayCommand --> DisplayCommandParser :
+deactivate DisplayCommand
+
+DisplayCommandParser --> AddressBookParser : d
+deactivate DisplayCommandParser
+'Destroy the DisplayCommandParser after use
+DisplayCommandParser -[hidden]-> AddressBookParser
+destroy DisplayCommandParser
+
+AddressBookParser --> LogicManager : d
+deactivate AddressBookParser
+
+LogicManager -> DisplayCommand : execute(m)
+activate DisplayCommand
+
+DisplayCommand -> Model : updateFilteredPersonList(...)
+activate Model
+
+Model --> DisplayCommand
+deactivate Model
+
+create CommandResult
+DisplayCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> DisplayCommand
+deactivate CommandResult
+
+DisplayCommand --> LogicManager : r
+deactivate DisplayCommand
+
+[<--LogicManager
+deactivate LogicManager
+@enduml
