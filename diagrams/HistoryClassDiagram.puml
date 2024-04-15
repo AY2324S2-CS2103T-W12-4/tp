@@ -1,0 +1,28 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor #black
+skinparam classBackgroundColor #black
+
+Package History as HistoryPackage <<Rectangle>>{
+Class "<<interface>>\nHistory" as History
+Class "<<interface>>\nBufferedHistory" as BufferedHistory
+Class HistoryManager
+Class BufferedHistoryManager
+Class ArrayList
+}
+
+Package State {
+}
+
+Class HiddenOutside #FFFFFF
+HiddenOutside ..> History
+
+History <|-- BufferedHistory
+History <|.. HistoryManager
+HistoryManager --> ArrayList
+ArrayList -right-> "*" State
+HistoryManager <|-left- BufferedHistoryManager
+BufferedHistory <|..BufferedHistoryManager
+
+@enduml

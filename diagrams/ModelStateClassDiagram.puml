@@ -1,0 +1,23 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor DimGray
+skinparam classBackgroundColor DimGray
+
+Package ModelState as StatePackage <<Rectangle>>{
+Class ModelState
+Class Command
+Class ReadOnlyAddressBook
+Class Predicate
+Class ReadOnlyCalendar
+}
+
+Class HiddenOutside #FFFFFF
+HiddenOutside ..> ModelState
+
+ModelState *--> Command
+ModelState *--> ReadOnlyAddressBook
+ModelState *--> Predicate
+ModelState *--> ReadOnlyCalendar
+@enduml
+

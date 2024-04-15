@@ -1,0 +1,17 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor DimGray
+skinparam classBackgroundColor DimGray
+
+Package CommandState as StatePackage <<Rectangle>>{
+Class CommandState
+Class CommandText
+}
+
+Class HiddenOutside #FFFFFF
+HiddenOutside ..> CommandState
+
+CommandState *--> CommandText
+@enduml
+
