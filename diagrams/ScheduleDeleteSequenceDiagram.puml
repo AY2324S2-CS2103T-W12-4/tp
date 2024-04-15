@@ -1,0 +1,79 @@
+@startuml
+!include style.puml
+skinparam ArrowFontStyle plain
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":CommandParser" as CommandParser LOGIC_COLOR
+participant ":ScheduleCommandParser" as ScheduleCommandParser LOGIC_COLOR
+participant "d:ScheduleDeleteCommand" as ScheduleDeleteCommand LOGIC_COLOR
+participant ":ScheduleDeleteCommandParser" as ScheduleDeleteCommandParser LOGIC_COLOR
+participant "result:CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "m:Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("schedule delete h/Meeting")
+activate LogicManager
+
+LogicManager -> CommandParser : parseCommand("schedule delete h/Meeting")
+activate CommandParser
+
+create ScheduleCommandParser
+CommandParser -> ScheduleCommandParser : parse("schedule delete h/Meeting")
+activate ScheduleCommandParser
+
+create ScheduleDeleteCommandParser
+ScheduleCommandParser -> ScheduleDeleteCommandParser : parse("delete h/Meeting")
+activate ScheduleDeleteCommandParser
+
+ScheduleDeleteCommandParser --> ScheduleCommandParser
+deactivate ScheduleDeleteCommandParser
+destroy ScheduleDeleteCommandParser
+
+ScheduleCommandParser --> CommandParser
+deactivate ScheduleCommandParser
+
+CommandParser -> ScheduleCommandParser : parse("h/Meeting")
+activate ScheduleCommandParser
+
+create ScheduleDeleteCommand
+ScheduleCommandParser -> ScheduleDeleteCommand
+activate ScheduleDeleteCommand
+
+ScheduleDeleteCommand --> ScheduleCommandParser : d
+deactivate ScheduleDeleteCommand
+
+ScheduleCommandParser --> CommandParser : d
+deactivate ScheduleCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+ScheduleCommandParser -[hidden]-> CommandParser
+destroy ScheduleCommandParser
+
+CommandParser --> LogicManager : d
+deactivate CommandParser
+
+LogicManager -> ScheduleDeleteCommand : execute(m)
+activate ScheduleDeleteCommand
+
+ScheduleDeleteCommand -> Model : deleteEvent("Meeting")
+activate Model
+
+Model --> ScheduleDeleteCommand
+deactivate Model
+
+create CommandResult
+ScheduleDeleteCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> ScheduleDeleteCommand
+deactivate CommandResult
+
+ScheduleDeleteCommand --> LogicManager : result
+deactivate ScheduleDeleteCommand
+
+[<--LogicManager : result
+deactivate LogicManager
+@enduml
