@@ -10,10 +10,9 @@ end box
 [-> Model : rollBackHistory()
 activate Model
 
-Model -> VersionedAddressBook : rollBack()
+Model -> VersionedAddressBook : rollBackState()
 activate VersionedAddressBook
 
-VersionedAddressBook -> VersionedAddressBook :resetData(ReadOnlyAddressBook)
 VersionedAddressBook --> Model :
 deactivate VersionedAddressBook
 
